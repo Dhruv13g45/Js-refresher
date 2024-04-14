@@ -12,17 +12,20 @@ const changeColor = () => {
 }
 
 
-let intervalId;
+let timer;
 const startChangeColor = () => {
-    intervalId = setInterval(invokeColor, 1000)
-    console.log("clicked")
+    if (!timer) {
+        timer = setInterval(invokeColor, 1000)
+        console.log("clicked")
+    }
 
     function invokeColor() {
         document.body.style.backgroundColor = changeColor()
     }
 }
 const stopChangeColor = () => {
-    clearInterval(intervalId);
+    clearInterval(timer);
+    timer = null
     console.log("stoped")
 }
 
